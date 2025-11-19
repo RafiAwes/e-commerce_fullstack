@@ -26,3 +26,20 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Docker
+.docker
+docker-compose.override.yml
+docker/nginx/ssl/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE files
+*.swp
+*.swo
+*~
