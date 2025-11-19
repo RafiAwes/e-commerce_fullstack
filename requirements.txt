@@ -1,0 +1,92 @@
+# Laravel + React E-Commerce Project Requirements
+
+## System Requirements
+
+### Server Requirements
+- PHP >= 8.2
+- MySQL >= 8.0 or SQLite >= 3.35.0
+- Redis >= 6.0
+- Node.js >= 22.x
+- NPM >= 10.x
+- Composer >= 2.x
+
+### PHP Extensions
+- BCMath PHP Extension
+- Ctype PHP Extension
+- cURL PHP Extension
+- DOM PHP Extension
+- Fileinfo PHP Extension
+- JSON PHP Extension
+- Mbstring PHP Extension
+- OpenSSL PHP Extension
+- PCRE PHP Extension
+- PDO PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+
+### Optional PHP Extensions
+- GD PHP Extension (for image processing)
+- Imagick PHP Extension (for advanced image processing)
+
+## Development Dependencies
+
+### PHP Dependencies (via Composer)
+# These are automatically installed via composer.json
+# Run: composer install
+
+### JavaScript Dependencies (via NPM)
+# These are automatically installed via package.json
+# Run: npm install
+
+## Docker Requirements (Optional but Recommended)
+- Docker Engine >= 20.10
+- Docker Compose >= 1.29
+
+## Installation Commands
+
+### Without Docker
+1. Install PHP dependencies:
+   composer install
+
+2. Install Node.js dependencies:
+   npm install
+
+3. Copy and configure environment file:
+   cp .env.example .env
+
+4. Generate application key:
+   php artisan key:generate
+
+5. Run database migrations:
+   php artisan migrate
+
+6. Build frontend assets:
+   npm run build
+
+### With Docker
+1. Start the Docker environment:
+   docker-compose up -d
+
+2. Install dependencies and setup (first time only):
+   docker-compose exec app composer install
+   docker-compose exec app cp .env.example .env
+   docker-compose exec app php artisan key:generate
+   docker-compose exec app php artisan migrate
+
+## Development Commands
+
+### Start Development Server
+- Without Docker: npm run dev
+- With Docker: Frontend server runs automatically in app container on port 5173
+
+### Build Production Assets
+npm run build
+
+### Run Tests
+composer test
+
+### Code Quality
+./vendor/bin/pint (PHP code formatting)
+npm run lint (JavaScript/TypeScript linting)
+npm run format (Code formatting)
+npm run types (TypeScript type checking)
