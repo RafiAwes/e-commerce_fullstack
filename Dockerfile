@@ -4,7 +4,7 @@ FROM php:8.4-fpm
 # Set working directory
 WORKDIR /var/www/html
 
-# Install system dependencies
+# Install system dependencies (including curl for Node.js installation)
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -24,9 +24,10 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
-RUN apt-get install -y nodejs
+# Install Node.js from NodeSource (CORRECTED)
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@latest
 
 # Copy existing application directory contents
 COPY . /var/www/html
