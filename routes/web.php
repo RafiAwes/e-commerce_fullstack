@@ -1,10 +1,9 @@
 <?php
 
-use Inertia\Inertia;
 use App\Jobs\TestRedisJob;
-use Laravel\Fortify\Features;
 use Illuminate\Support\Facades\Route;
-
+use Inertia\Inertia;
+use Laravel\Fortify\Features;
 
 Route::get('/', function () {
     return Inertia::render('welcome', [

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
 class Audit_log extends Model
 {
@@ -18,9 +17,5 @@ class Audit_log extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    } 
-    
-    
-
-
+    }
 }

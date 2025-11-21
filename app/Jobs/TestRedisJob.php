@@ -15,7 +15,6 @@ class TestRedisJob implements ShouldQueue
      */
     public function __construct()
     {
-        
     }
 
     /**
@@ -23,6 +22,6 @@ class TestRedisJob implements ShouldQueue
      */
     public function handle(): void
     {
-        Log::info("Redis Queue Job Execute Successfully");
+        Log::info('Redis Queue Job Execute Successfully');
     }
 }

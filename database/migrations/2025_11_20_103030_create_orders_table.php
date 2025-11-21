@@ -18,10 +18,9 @@ return new class extends Migration
             $table->decimal('total_price', 10, 2);
             $table->timestamps();
         });
-       
     }
 
-    /** 
+    /**
      * Reverse the migrations.
      */
     public function down(): void
