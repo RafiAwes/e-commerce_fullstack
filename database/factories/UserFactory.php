@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Role;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -55,5 +56,16 @@ class UserFactory extends Factory
             'two_factor_recovery_codes' => null,
             'two_factor_confirmed_at' => null,
         ]);
+    }
+
+    /**
+     * Assign a role to the user.
+     */
+    public function withRole(string $roleName): static
+    {
+        return $this->afterCreating(function ($user) use ($roleName) {
+            $role = Role::firstOrCreate(['name' => $roleName]);
+            $user->roles()->attach($role);
+        });
     }
 }
